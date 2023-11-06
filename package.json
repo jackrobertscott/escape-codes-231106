@@ -1,0 +1,27 @@
+{
+  "name": "escape-codes",
+  "version": "0.1.0",
+  "author": "Jack Scott",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "readme.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist/*",
+    "prepublishOnly": "npm run clean && npm run build",
+    "dev": "ts-node src/index.ts",
+    "watch": "ts-node-dev src/index.ts",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.7",
+    "@types/node": "^20.8.10",
+    "jest": "^29.7.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
