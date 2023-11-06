@@ -26,7 +26,13 @@ After installation, import the module into your project to access its functional
 
 ```javascript
 import { ansi, ascii, cli } from 'escape-codes';
+```
 
+Then use the codes to control the terminal.
+
+```javascript
+process.stdout.write(`${ansi.foreground.blue}Hello, Blue!${ansi.format.reset}`)
+// or
 cli.write(`${ansi.foreground.blue}Hello, Blue!${ansi.format.reset}`)
 // or
 cli.write([ansi.foreground.blue, "Hello, Blue!", ansi.format.reset])
