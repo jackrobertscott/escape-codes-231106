@@ -53,13 +53,13 @@ export const ansi = {
   /** Cursor control codes. */
   cursor: {
     /** Move cursor up by 'n' rows */
-    moveUp: (n: number = 1) => `\x1b[${n}A`,
+    up: (n: number = 1) => `\x1b[${n}A`,
     /** Move cursor down by 'n' rows */
-    moveDown: (n: number = 1) => `\x1b[${n}B`,
+    down: (n: number = 1) => `\x1b[${n}B`,
     /** Move cursor right by 'n' columns */
-    moveRight: (n: number = 1) => `\x1b[${n}C`,
+    right: (n: number = 1) => `\x1b[${n}C`,
     /** Move cursor left by 'n' columns */
-    moveLeft: (n: number = 1) => `\x1b[${n}D`,
+    left: (n: number = 1) => `\x1b[${n}D`,
     /** Move cursor to row 'n', column 'm' */
     move: (n: number, m: number) => `\x1b[${n};${m}H`,
     /** Save the current cursor position */

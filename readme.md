@@ -33,7 +33,7 @@ Then use the codes to control and format the terminal.
 ```javascript
 cli.write([ansi.foreground.blue, "Hello, Blue!", ansi.format.reset])
 cli.write(`${ansi.format.bold}I am bold!${ansi.format.reset}`)
-cli.write(ansi.cursor.moveLeft(1))
+cli.write(ansi.cursor.left(1))
 ```
 
 Or read input from the terminal.
@@ -106,14 +106,14 @@ Usage: `ansi.format.reset`
 
 #### Cursor Control Codes
 
-Usage: `ansi.cursor.moveUp(3)` or `ansi.cursor.save`
+Usage: `ansi.cursor.up(3)` or `ansi.cursor.save`
 
 | Action        | Code                          | Description                            |
 |---------------|-------------------------------|----------------------------------------|
-| `moveUp`      | `(n = 1) => "\x1b[${n}A"`    | Move cursor up by 'n' rows             |
-| `moveDown`    | `(n = 1) => "\x1b[${n}B"`    | Move cursor down by 'n' rows           |
-| `moveRight`   | `(n = 1) => "\x1b[${n}C"`    | Move cursor right by 'n' columns       |
-| `moveLeft`    | `(n = 1) => "\x1b[${n}D"`    | Move cursor left by 'n' columns        |
+| `up`      | `(n = 1) => "\x1b[${n}A"`    | Move cursor up by 'n' rows             |
+| `down`    | `(n = 1) => "\x1b[${n}B"`    | Move cursor down by 'n' rows           |
+| `right`   | `(n = 1) => "\x1b[${n}C"`    | Move cursor right by 'n' columns       |
+| `left`    | `(n = 1) => "\x1b[${n}D"`    | Move cursor left by 'n' columns        |
 | `move`        | `(n, m) => "\x1b[${n};${m}H"`| Move cursor to row 'n', column 'm'     |
 | `save`        | `"\x1b[s"`                   | Save the current cursor position       |
 | `restore`     | `"\x1b[u"`                   | Restore the saved cursor position      |

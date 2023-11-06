@@ -21,15 +21,24 @@ export const cli = {
     process.stdin.setEncoding("utf8")
     if (process.stdin.isPaused()) process.stdin.resume()
 
+    const dataListener = (data: string | Buffer) => {
+      const value = data.toString()
+      cb(value, stop)
+    }
+
+    const errorListener = (error: Error) => {
+      throw error
+    }
+
     const stop = () => {
       process.stdin.pause()
       if (process.stdin.isRaw) process.stdin.setRawMode(false)
+      process.off("data", dataListener)
+      process.off("error", errorListener)
     }
 
-    process.stdin.on("data", (data: string | Buffer) => {
-      const value = data.toString()
-      cb(value, stop)
-    })
+    process.stdin.on("data", dataListener)
+    process.stdin.on("error", errorListener)
   },
 
   /**
@@ -41,9 +50,9 @@ export const cli = {
       let value = ""
       this.read((stroke, stop) => {
         if (value.length) {
-          this.write(ansi.cursor.moveLeft(value.length))
+          this.write(ansi.cursor.left(value.length))
           this.write(" ".repeat(value.length))
-          this.write(ansi.cursor.moveLeft(value.length))
+          this.write(ansi.cursor.left(value.length))
         }
         switch (stroke) {
           case ansi.key.exit:
