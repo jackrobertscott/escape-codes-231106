@@ -1,24 +1,41 @@
 import { ansi } from "./ansi"
 
+/**
+ * CLI utilities for writing to and reading from the terminal.
+ */
 export const cli = {
+  /**
+   * Writes data to the standard output.
+   * @param data - A string or array of strings to write to stdout.
+   */
   write(data: string | string[]) {
     process.stdout.write(Array.isArray(data) ? data.join("") : data)
   },
 
+  /**
+   * Reads input from the standard input, character by character.
+   * @param cb - A callback that is invoked with the input data and a stop function.
+   */
   read(cb: (data: string, stop: () => void) => void) {
-    process.stdin.setRawMode(true) // trigger on every key stroke
-    process.stdin.setEncoding("utf8") // return data as a string
-    if (process.stdin.isPaused()) process.stdin.resume() // open input
+    process.stdin.setRawMode(true)
+    process.stdin.setEncoding("utf8")
+    if (process.stdin.isPaused()) process.stdin.resume()
+
     const stop = () => {
-      process.stdin.pause() // close input
+      process.stdin.pause()
       if (process.stdin.isRaw) process.stdin.setRawMode(false)
     }
+
     process.stdin.on("data", (data: string | Buffer) => {
       const value = data.toString()
       cb(value, stop)
     })
   },
 
+  /**
+   * Asynchronously captures a single line of input from the standard input.
+   * @returns A promise that resolves to the input string.
+   */
   async input() {
     return new Promise<string>((resolve) => {
       let value = ""

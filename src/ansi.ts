@@ -1,51 +1,78 @@
+/**
+ * A collection of ANSI escape codes for command line styling and control.
+ */
 export const ansi = {
+  /** Control key codes. */
   key: {
+    /** Horizontal Tab */
     tab: "\x09",
+    /** Carriage Return (Enter) */
     enter: "\x0D",
+    /** Escape character */
     escape: "\x1B",
+    /** Backspace character */
     backspace: "\x7F",
+    /** Delete character */
     delete: "\u001b[3~",
+    /** Exit character (Ctrl+C) */
     exit: "\x03",
+    /** Arrow Up */
     up: "\x1B[A",
+    /** Arrow Down */
     down: "\x1B[B",
+    /** Arrow Right */
     right: "\x1B[C",
+    /** Arrow Left */
     left: "\x1B[D",
   },
 
+  /** Formatting codes. */
   format: {
+    /** Reset all styles to default */
     reset: `\x1b[0m`,
+    /** Bold text */
     bold: `\x1b[1m`,
+    /** Fainter text */
     faint: `\x1b[2m`,
+    /** Italic text */
     italic: `\x1b[3m`,
+    /** Underlined text */
     underline: `\x1b[4m`,
+    /** Slow Blink */
     blink: `\x1b[5m`,
+    /** Rapid Blink (not widely supported) */
     rapid: `\x1b[6m`,
+    /** Swap foreground and background colors */
     reverse: `\x1b[7m`,
+    /** Conceal text (not widely supported) */
     conceal: `\x1b[8m`,
+    /** Strikethrough text */
     strike: `\x1b[9m`,
   },
 
+  /** Cursor control codes. */
   cursor: {
+    /** Move cursor up by 'n' rows */
     moveUp: (n: number = 1) => `\x1b[${n}A`,
+    /** Move cursor down by 'n' rows */
     moveDown: (n: number = 1) => `\x1b[${n}B`,
+    /** Move cursor right by 'n' columns */
     moveRight: (n: number = 1) => `\x1b[${n}C`,
+    /** Move cursor left by 'n' columns */
     moveLeft: (n: number = 1) => `\x1b[${n}D`,
+    /** Move cursor to row 'n', column 'm' */
     move: (n: number, m: number) => `\x1b[${n};${m}H`,
-    save: `\x1b[s`, // position
-    restore: `\x1b[u`, // position
+    /** Save the current cursor position */
+    save: `\x1b[s`,
+    /** Restore the saved cursor position */
+    restore: `\x1b[u`,
+    /** Show the cursor */
     show: `\x1b[?25h`,
+    /** Hide the cursor */
     hide: `\x1b[?25l`,
   },
 
-  clear: {
-    line: `\x1b[2K`,
-    after: `\x1b[0K`,
-    before: `\x1b[1K`,
-    screen: `\x1b[2J`,
-    above: `\x1b[1J`,
-    below: `\x1b[0J`,
-  },
-
+  /** Foreground (text) color codes. */
   foreground: {
     default: "\x1b[39m",
     black: "\x1b[30m",
@@ -66,6 +93,7 @@ export const ansi = {
     brightWhite: "\x1b[97m",
   },
 
+  /** Background color codes. */
   background: {
     default: "\x1b[49m",
     black: "\x1b[40m",
