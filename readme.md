@@ -102,25 +102,49 @@ Usage: `ansi.cursor.moveUp(3)` or `ansi.cursor.save`
 
 Usage: `ansi.foreground.blue`
 
-| Color          | Code            | Description                 |
-|----------------|-----------------|-----------------------------|
-| `default`      | `"\x1b[39m"`    | Default foreground color    |
-| `black`        | `"\x1b[30m"`    | Black foreground color      |
-| `red`          | `"\x1b[31m"`    | Red foreground color        |
-| ...            | ...             | ...                         |
-| `brightWhite`  | `"\x1b[97m"`    | Bright white foreground color |
+| Property        | Code        | Description              |
+|-----------------|-------------|--------------------------|
+| `default`       | `"\x1b[39m"`| Default foreground color |
+| `black`         | `"\x1b[30m"`| Black text color         |
+| `red`           | `"\x1b[31m"`| Red text color           |
+| `green`         | `"\x1b[32m"`| Green text color         |
+| `yellow`        | `"\x1b[33m"`| Yellow text color        |
+| `blue`          | `"\x1b[34m"`| Blue text color          |
+| `magenta`       | `"\x1b[35m"`| Magenta text color       |
+| `cyan`          | `"\x1b[36m"`| Cyan text color          |
+| `white`         | `"\x1b[37m"`| White text color         |
+| `brightBlack`   | `"\x1b[90m"`| Bright black text color  |
+| `brightRed`     | `"\x1b[91m"`| Bright red text color    |
+| `brightGreen`   | `"\x1b[92m"`| Bright green text color  |
+| `brightYellow`  | `"\x1b[93m"`| Bright yellow text color |
+| `brightBlue`    | `"\x1b[94m"`| Bright blue text color   |
+| `brightMagenta` | `"\x1b[95m"`| Bright magenta text color|
+| `brightCyan`    | `"\x1b[96m"`| Bright cyan text color   |
+| `brightWhite`   | `"\x1b[97m"`| Bright white text color  |
 
 #### Background Color Codes
 
 Usage: `ansi.background.red`
 
-| Color          | Code            | Description                 |
-|----------------|-----------------|-----------------------------|
-| `default`      | `"\x1b[49m"`    | Default background color    |
-| `black`        | `"\x1b[40m"`    | Black background color      |
-| `red`          | `"\x1b[41m"`    | Red background color        |
-| ...            | ...             | ...                         |
-| `brightWhite`  | `"\x1b[107m"`   | Bright white background color |
+| Property        | Code         | Description                |
+|-----------------|--------------|----------------------------|
+| `default`       | `"\x1b[49m"` | Default background color   |
+| `black`         | `"\x1b[40m"` | Black background color     |
+| `red`           | `"\x1b[41m"` | Red background color       |
+| `green`         | `"\x1b[42m"` | Green background color     |
+| `yellow`        | `"\x1b[43m"` | Yellow background color    |
+| `blue`          | `"\x1b[44m"` | Blue background color      |
+| `magenta`       | `"\x1b[45m"` | Magenta background color   |
+| `cyan`          | `"\x1b[46m"` | Cyan background color      |
+| `white`         | `"\x1b[47m"` | White background color     |
+| `brightBlack`   | `"\x1b[100m"`| Bright black background color  |
+| `brightRed`     | `"\x1b[101m"`| Bright red background color    |
+| `brightGreen`   | `"\x1b[102m"`| Bright green background color  |
+| `brightYellow`  | `"\x1b[103m"`| Bright yellow background color |
+| `brightBlue`    | `"\x1b[104m"`| Bright blue background color   |
+| `brightMagenta` | `"\x1b[105m"`| Bright magenta background color|
+| `brightCyan`    | `"\x1b[106m"`| Bright cyan background color   |
+| `brightWhite`   | `"\x1b[107m"`| Bright white background color  |
 
 ### ASCII Control Characters
 
