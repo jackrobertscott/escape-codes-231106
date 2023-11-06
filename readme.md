@@ -28,14 +28,30 @@ After installation, import the module into your project to access its functional
 import { ansi, ascii, cli } from 'escape-codes';
 ```
 
-Then use the codes to control the terminal.
+Then use the codes to control and format the terminal.
 
 ```javascript
-process.stdout.write(`${ansi.foreground.blue}Hello, Blue!${ansi.format.reset}`)
-// or
-cli.write(`${ansi.foreground.blue}Hello, Blue!${ansi.format.reset}`)
-// or
 cli.write([ansi.foreground.blue, "Hello, Blue!", ansi.format.reset])
+cli.write(`${ansi.format.bold}I am bold!${ansi.format.reset}`)
+cli.write(ansi.cursor.moveLeft(1))
+```
+
+Or read input from the terminal.
+
+```javascript
+cli.read((stroke, stop) => {
+  switch (stroke) {
+    case ansi.key.exit:
+      process.exit()
+    case ansi.key.enter:
+      stop() // stop reading key strokes
+      break
+    default:
+      if (/^[a-zA-Z0-9 .,!?;:'"()-]*$/.test(stroke)) {
+        console.log(`You pressed: ${stroke}`)
+      }
+  }
+})
 ```
 
 ## API
@@ -154,7 +170,7 @@ Usage: `ansi.background.red`
 
 ### ASCII Control Characters
 
-Usage: `ascii.background.red` (*note* the `ascii` instead of `ansi`)
+Usage: `ascii.ctrlA` (*note* the `ascii` instead of `ansi`)
 
 | Property  | Code   | ASCII Character      | Description                                          |
 |-----------|--------|----------------------|------------------------------------------------------|
