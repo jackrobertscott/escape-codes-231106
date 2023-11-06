@@ -1,6 +1,6 @@
 {
   "name": "escape-codes",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "author": "Jack Scott",
   "license": "MIT",
   "main": "dist/index.js",
