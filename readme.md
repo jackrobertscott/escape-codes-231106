@@ -1,6 +1,6 @@
-# Escape Codes
+# escape-codes
 
-Escape Codes is a Node.js package providing an extensive collection of ANSI escape codes for enhanced command-line interface (CLI) styling and interaction. It allows for sophisticated text formatting, color manipulation, cursor control, and provides utilities for reading and writing in terminal applications.
+A Node.js package providing an extensive collection of ANSI escape codes for enhanced command-line interface (CLI) styling and interaction. It allows for sophisticated text formatting, color manipulation, cursor control, and provides utilities for reading and writing in terminal applications.
 
 ## Features
 
@@ -17,7 +17,7 @@ Escape Codes is a Node.js package providing an extensive collection of ANSI esca
 To install Escape Codes, run the following command in your project directory:
 
 ```sh
-npm install escape-codes --save
+npm install escape-codes
 ```
 
 ## Usage
@@ -26,6 +26,10 @@ After installation, import the module into your project to access its functional
 
 ```javascript
 import { ansi, ascii, cli } from 'escape-codes';
+
+cli.write(`${ansi.foreground.blue}Hello, Blue!${ansi.format.reset}`)
+// or
+cli.write([ansi.foreground.blue, "Hello, Blue!", ansi.format.reset])
 ```
 
 ## API
@@ -46,6 +50,8 @@ ANSI escape codes for various CLI styling and control:
 
 #### Control Keys
 
+Usage: `ansi.key.tab`
+
 | Key        | Code            | Description                    |
 |------------|-----------------|--------------------------------|
 | `tab`      | `"\x09"`        | Horizontal Tab                 |
@@ -60,6 +66,8 @@ ANSI escape codes for various CLI styling and control:
 | `left`     | `"\x1B[D"`      | Arrow Left                     |
 
 #### Formatting Codes
+
+Usage: `ansi.format.reset`
 
 | Style         | Code          | Description                         |
 |---------------|---------------|-------------------------------------|
@@ -76,6 +84,8 @@ ANSI escape codes for various CLI styling and control:
 
 #### Cursor Control Codes
 
+Usage: `ansi.cursor.moveUp(3)` or `ansi.cursor.save`
+
 | Action        | Code                          | Description                            |
 |---------------|-------------------------------|----------------------------------------|
 | `moveUp`      | `(n = 1) => "\x1b[${n}A"`    | Move cursor up by 'n' rows             |
@@ -90,6 +100,8 @@ ANSI escape codes for various CLI styling and control:
 
 #### Foreground Color Codes
 
+Usage: `ansi.foreground.blue`
+
 | Color          | Code            | Description                 |
 |----------------|-----------------|-----------------------------|
 | `default`      | `"\x1b[39m"`    | Default foreground color    |
@@ -100,6 +112,8 @@ ANSI escape codes for various CLI styling and control:
 
 #### Background Color Codes
 
+Usage: `ansi.background.red`
+
 | Color          | Code            | Description                 |
 |----------------|-----------------|-----------------------------|
 | `default`      | `"\x1b[49m"`    | Default background color    |
@@ -109,6 +123,8 @@ ANSI escape codes for various CLI styling and control:
 | `brightWhite`  | `"\x1b[107m"`   | Bright white background color |
 
 ### ASCII Control Characters
+
+Usage: `ascii.background.red` (*note* the `ascii` instead of `ansi`)
 
 | Property  | Code   | ASCII Character      | Description                                          |
 |-----------|--------|----------------------|------------------------------------------------------|
