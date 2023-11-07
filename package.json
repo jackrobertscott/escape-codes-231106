@@ -1,17 +1,32 @@
 {
   "name": "escape-codes",
-  "version": "0.4.1",
+  "description": "Enhance CLI interfaces with easy-to-use ANSI styling and cursor utilities.",
+  "version": "0.4.2",
   "author": "Jack Scott",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": {
-    "url": "https://github.com/jackrobertscott/escape-codes"
-  },
   "files": [
     "dist",
     "readme.md"
   ],
+  "keywords": [
+    "cli",
+    "ansi",
+    "ascii",
+    "styling",
+    "colors",
+    "terminal",
+    "nodejs",
+    "command-line",
+    "text",
+    "formatting",
+    "console"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackrobertscott/escape-codes"
+  },
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist/*",
